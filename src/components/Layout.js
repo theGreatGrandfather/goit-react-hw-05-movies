@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { NavLink, Outlet } from "react-router-dom";
 
 function Layout(props) {
@@ -20,6 +20,6 @@ function Layout(props) {
     )
 }
 
-Layout.propTypes = {}
+// Layout.propTypes = {}
 
 export default Layout
