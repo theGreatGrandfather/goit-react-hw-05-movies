@@ -27,7 +27,7 @@ function MovieDetails() {
     //     second
     //   }
         movieDetails();
-    }, [])
+    }, [movieId])
     
 
     return (
