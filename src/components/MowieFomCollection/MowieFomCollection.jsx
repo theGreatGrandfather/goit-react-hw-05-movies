@@ -43,6 +43,13 @@ function MowieFomCollection({title, img, average, overview, genres, movieData })
     )
 }
 
-MowieFomCollection.propTypes = {}
+MowieFomCollection.propTypes = {
+    title: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    movieData: PropTypes.bool.isRequired,
+};
 
 export default MowieFomCollection

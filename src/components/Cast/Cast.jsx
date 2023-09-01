@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getCast } from '../Api';
 
-function Cast(props) {
+function Cast() {
     const { movieId } = useParams();
     const [cast, setCast] = useState(null);
     
@@ -24,7 +23,7 @@ function Cast(props) {
 
     console.log('cast :>> ', cast);
     return (
-        <div>Cast
+        <div>
             <ul>
                 {(cast&&cast.length) ? cast.map((el) =>
                     <li key={el.cast_id}>
@@ -43,6 +42,6 @@ function Cast(props) {
     );
 }
 
-Cast.propTypes = {};
+
 
 export default Cast;

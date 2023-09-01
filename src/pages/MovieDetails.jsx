@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
 import { useParams, useLocation } from 'react-router-dom'
 import { useState } from 'react';
 
@@ -73,7 +72,5 @@ function MovieDetails() {
         </>
     )
 }
-
-// MovieDetails.propTypes = {}
 
 export default MovieDetails

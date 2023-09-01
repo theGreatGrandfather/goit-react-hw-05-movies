@@ -1,13 +1,11 @@
 import React from 'react'
 import { Suspense } from "react";
+import { Outlet } from 'react-router-dom';
 
-
-
-// import PropTypes from 'prop-types'
-import { NavLink, Outlet } from "react-router-dom";
 import { Header, Container, Nav, NavItem, NavList, Link } from './Layout.styled';
 
-function Layout(props) {
+
+function Layout() {
     return (
         <>
             <Header>

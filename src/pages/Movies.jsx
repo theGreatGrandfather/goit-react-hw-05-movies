@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useSearchParams } from "react-router-dom";
-import PropTypes from 'prop-types'
 import { getMoviesBySearch } from 'components/Api';
 
 
@@ -116,7 +115,5 @@ function Movies(props) {
         </div>
     )
 }
-
-// Movies.propTypes = {}
 
 export default Movies

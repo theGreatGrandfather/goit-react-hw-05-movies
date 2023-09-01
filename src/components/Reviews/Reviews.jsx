@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import { getRev } from '../Api';
 
-function Reviews(props) {
+function Reviews() {
     
      const { movieId } = useParams();
     const [rev, setRev] = useState([])
@@ -36,7 +35,5 @@ function Reviews(props) {
         </div>
     )
 }
-
-Reviews.propTypes = {}
 
 export default Reviews

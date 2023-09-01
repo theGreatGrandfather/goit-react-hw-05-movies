@@ -32,6 +32,9 @@ function DetailsInfo({cast, reviews}) {
   )
 }
 
-DetailsInfo.propTypes = {}
+DetailsInfo.propTypes = {
+  cast: PropTypes.string.isRequired,
+  reviews: PropTypes.string.isRequired,
+}
 
 export default DetailsInfo

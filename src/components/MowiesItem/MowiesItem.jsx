@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 import { Item, ItemLink, Img } from './MowiesItem.stuled'
 
 
-function MowiesItem({ id, linkTo, state, title, originalName, img , img1}) {
-    console.log('img :>> ', img);
-    console.log('img1 :>> ', img1);
+function MowiesItem({ id, linkTo, state, title, originalName, img }) {
+
     return (
         <Item
             key={id}
@@ -15,7 +14,6 @@ function MowiesItem({ id, linkTo, state, title, originalName, img , img1}) {
                 to={linkTo}
                 state={state}
             >
-                
                 <Img  src={
                     `https://image.tmdb.org/t/p/w200${img}`
                 } alt="" />
@@ -25,6 +23,13 @@ function MowiesItem({ id, linkTo, state, title, originalName, img , img1}) {
     )
 }
 
-MowiesItem.propTypes = {}
+MowiesItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    linkTo: PropTypes.string.isRequired,
+    state: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    originalName: PropTypes.string,
+    img: PropTypes.string.isRequired,
+};
 
 export default MowiesItem

@@ -1,5 +1,4 @@
 import React, {useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 
 import { getTrendingMovies } from '../components/Api'
@@ -37,7 +36,5 @@ function Home() {
         </Section>
     )
 }
-
-Home.propTypes = {}
 
 export default Home
