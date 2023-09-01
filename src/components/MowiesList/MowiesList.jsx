@@ -28,6 +28,17 @@ function MowiesList({ moviesList, state }) {
     )
 }
 
-MowiesList.propTypes = {}
+MowiesList.propTypes = {
+    moviesList: PropTypes.arrayOf(
+        PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        original_name: PropTypes.string.isRequired,
+        poster_path: PropTypes.string.isRequired,
+        backdrop_path: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+    state: PropTypes.object.isRequired,
+};
 
 export default MowiesList
