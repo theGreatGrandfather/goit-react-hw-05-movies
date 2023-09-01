@@ -12,22 +12,22 @@ function DetailsInfo({cast, reviews}) {
     <DetaisWrapper>
       <MovieDescription>
         Additionals information
-    </MovieDescription>
-    <DetaisList>
-      <DetailsItem>
-        <ItemLink to={cast}>
-          Cast
-        </ItemLink>
-      </DetailsItem>
+      </MovieDescription>
+      <DetaisList>
         <DetailsItem>
-        <ItemLink to={reviews}>
-          Reviews
-        </ItemLink>
-      </DetailsItem>
-    </DetaisList>
-    <Suspense fallback={<div>Loading...</div>}>
-      <Outlet />
-    </Suspense>
+          <ItemLink to={cast}>
+            Cast
+          </ItemLink>
+        </DetailsItem>
+          <DetailsItem>
+          <ItemLink to={reviews}>
+            Reviews
+          </ItemLink>
+        </DetailsItem>
+      </DetaisList>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </DetaisWrapper>
   )
 }
