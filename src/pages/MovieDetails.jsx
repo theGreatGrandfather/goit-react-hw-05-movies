@@ -33,7 +33,7 @@ function MovieDetails() {
                 setTitle(resp.title);
                 setImg((resp.poster_path) ?
                     `https://image.tmdb.org/t/p/w300${resp.poster_path}` :
-                    'https://basket-01.wb.ru/vol100/part10070/10070204/images/big/1.jpg');
+                    'https://raw.githubusercontent.com/theGreatGrandfather/goit-react-hw-05-movies/main/public/background.jpg');
                 setAverage(Number.parseInt(`${resp.vote_average * 10}`));
                 setOverview(resp.overview);
                 setGenres(resp.genres.map((el) =>

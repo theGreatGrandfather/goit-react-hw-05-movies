@@ -29,7 +29,7 @@ function Cast() {
                     <li key={el.cast_id}>
                         <img width={200} src={(el.profile_path) ?
                             `https://image.tmdb.org/t/p/w200${el.profile_path}` :
-                            'https://basket-01.wb.ru/vol100/part10070/10070204/images/big/1.jpg'
+                            'https://raw.githubusercontent.com/theGreatGrandfather/goit-react-hw-05-movies/main/public/background.jpg'
                             } alt={el.name} />
                         <p>{el.name}</p>
                         <p>Character: {el.character}</p>
