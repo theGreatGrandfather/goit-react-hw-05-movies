@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {Item, ItemLink, Img} from './MowiesItem.stuled'
+import { Item, ItemLink, Img } from './MowiesItem.stuled'
+
 
 function MowiesItem({ id, linkTo, state, title, originalName, img , img1}) {
     console.log('img :>> ', img);

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import {List} from './MowiesList.styled'
 import MowiesItem from '../MowiesItem/MowiesItem'
+
 function MowiesList({ moviesList, state }) {
     console.log('moviesList :>> ', moviesList);
     return (
@@ -12,6 +13,7 @@ function MowiesList({ moviesList, state }) {
             {moviesList.map((movie) => (
             
                 <MowiesItem
+                    key={movie.id}
                     id={movie.id}
                     linkTo={`movies/${movie.id}`}
                     state={state}

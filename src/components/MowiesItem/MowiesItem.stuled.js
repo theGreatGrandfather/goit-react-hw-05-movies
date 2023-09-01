@@ -26,6 +26,8 @@ export const ItemLink = styled(Link)`
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
     &:hover,
     &:focus{
         transform: scale(1.1);

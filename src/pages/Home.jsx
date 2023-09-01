@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react'
-// import PropTypes from 'prop-types'
-import { Link, useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
 
 import { getTrendingMovies } from '../components/Api'
 import Section from 'components/Section/Section';
@@ -21,12 +21,8 @@ function Home() {
                 console.log('error :>> ', error);
             }
         }   
-        // return () => {
-        // second
-        // }
         trendingMovies();
     }, [])
-    console.log('moviesList :>> ', moviesList);
 
     return (
         <Section
@@ -42,20 +38,6 @@ function Home() {
     )
 }
 
-// <MowiesList>
-//                 {moviesList.map((movie) => (
-            
-//                 <li  key={movie.id}>
-//                     <Link
-//                         to={`movies/${movie.id}`}
-//                         state={{ from: location }}
-//                     >
-//                         {movie.title || movie.original_name}
-//                     </Link>
-//                 </li>
-            
-//                 ))}
-//             </MowiesList>
-// Home.propTypes = {}
+Home.propTypes = {}
 
 export default Home

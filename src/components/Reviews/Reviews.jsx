@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
-import { getRev } from './Api';
+import { getRev } from '../Api';
 
 function Reviews(props) {
     

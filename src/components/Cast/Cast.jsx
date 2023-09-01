@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { getCast } from './Api';
+import { getCast } from '../Api';
 
 function Cast(props) {
     const { movieId } = useParams();
@@ -28,7 +28,12 @@ function Cast(props) {
             <ul>
                 {(cast&&cast.length) ? cast.map((el) =>
                     <li key={el.cast_id}>
+                        <img width={200} src={(el.profile_path) ?
+                            `https://image.tmdb.org/t/p/w200${el.profile_path}` :
+                            'https://basket-01.wb.ru/vol100/part10070/10070204/images/big/1.jpg'
+                            } alt={el.name} />
                         <p>{el.name}</p>
+                        <p>Character: {el.character}</p>
                     </li>
                 ) :
                 <p>No data about cast </p>

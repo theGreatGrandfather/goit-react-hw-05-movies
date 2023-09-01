@@ -8,9 +8,9 @@ const Section = ({title, children}) => {
     return (
         <SectionElemet>
             <Container>
-                <Title>
+                {title && <Title>
                     {title}
-                </Title>
+                </Title>}
                     {children}
             </Container>
         </SectionElemet>
@@ -18,7 +18,7 @@ const Section = ({title, children}) => {
 }
 
 Section.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     // children: PropTypes.element
 }
 
