@@ -5,19 +5,21 @@ display: flex;
 flex-direction: column;
 padding-top: 20px;
 padding-bottom: 20px;
+max-width: 99vw;
+
 
 /* align-items: center; */
 `
 export const Container = styled.div`
 display: flex;
 flex-direction: column;
-max-width: 1440px;
+
  
 padding-left: 20px;
 padding-right: 20px;
-margin-left: auto;
-margin-right: auto;
-width: 99vw;
+/* margin-left: auto;
+margin-right: auto; */
+
 `
 export const Title = styled.h1`
 text-align: center;

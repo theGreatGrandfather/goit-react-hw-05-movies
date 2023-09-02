@@ -7,9 +7,7 @@ import MowiesItem from '../MowiesItem/MowiesItem'
 function MowiesList({ moviesList, state }) {
     console.log('moviesList :>> ', moviesList);
     return (
-        <List
-        
-        >
+        <List>
             {moviesList.map((movie) => (
             
                 <MowiesItem
@@ -32,7 +30,7 @@ MowiesList.propTypes = {
     moviesList: PropTypes.arrayOf(
         PropTypes.shape({
         id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
+        title: PropTypes.string,
         original_name: PropTypes.string.isRequired,
         poster_path: PropTypes.string.isRequired,
         backdrop_path: PropTypes.string.isRequired,

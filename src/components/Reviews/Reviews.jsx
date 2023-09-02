@@ -20,13 +20,14 @@ function Reviews() {
         
         getRevData();
     }, [movieId])
-    
+    console.log('rev :>> ', rev);
     return (
-        <div>Reviews
+        <div>
             <ul>
                 {rev.length ? rev.map((el) =>
                     <li key={el.id}>
-                        <p>{el.author}</p>
+                        <p><b>Aithor: {el.author}</b></p>
+                        <p>{ el.content}</p>
                     </li>
                 ) :
                 <p>No data about reviews </p>

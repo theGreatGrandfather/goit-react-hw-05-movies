@@ -1,25 +1,33 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-// import { List } from './CastList.styled'
-// import CastItem from 'components/CastItem/CastItem'
+import { List } from './CastList.styled'
+import CastItem from 'components/CastItem/CastItem'
 
-// function CastList({ cast }) {
-//     console.log('cast :>> ', cast);
-//     return (
-//         <List>
-//             CastList
-        
-//                 {cast.map((el) => (
-//                     <CastItem key={el.id}>
-//                     <p>{el.name}</p>
-//                     </CastItem>
-//                 ))}
+function CastList({ cast }) {
+    console.log('cast :>> ', cast);
+    return (
+        <List>        
+                {cast.map((el) => (
+                    <CastItem
+                        key={el.id}
+                        img={el.profile_path}
+                        character={el.character}
+                        name={el.name}
+                    />
+                ))}
                 
-//         </List>
-//     )
-// }
+        </List>
+    )
+}
 
-// CastList.propTypes = {}
+CastList.propTypes = {
+    cast: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired, 
+        profile_path: PropTypes.string.isRequired, 
+        character: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired, 
+    })).isRequired, 
+};
 
-// export default CastList
+export default CastList

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from '../Api';
+import CastList from 'components/CastList/CastList';
 
 function Cast() {
     const { movieId } = useParams();
@@ -24,20 +25,11 @@ function Cast() {
     console.log('cast :>> ', cast);
     return (
         <div>
-            <ul>
-                {(cast&&cast.length) ? cast.map((el) =>
-                    <li key={el.cast_id}>
-                        <img width={200} src={(el.profile_path) ?
-                            `https://image.tmdb.org/t/p/w200${el.profile_path}` :
-                            'https://raw.githubusercontent.com/theGreatGrandfather/goit-react-hw-05-movies/main/public/background.jpg'
-                            } alt={el.name} />
-                        <p>{el.name}</p>
-                        <p>Character: {el.character}</p>
-                    </li>
-                ) :
-                <p>No data about cast </p>
-                }
-            </ul>
+            {(cast&&cast.length) ?<CastList
+                cast={cast}
+            /> :
+            <p>No data about cast </p>
+            }
         </div>
     );
 }

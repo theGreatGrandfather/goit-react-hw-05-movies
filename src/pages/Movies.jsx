@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useSearchParams } from "react-router-dom";
+
 import { getMoviesBySearch } from 'components/Api';
+import SearchForm from 'components/SearchForm/SearchForm';
+
 
 
 
@@ -76,16 +79,11 @@ function Movies(props) {
     console.log('location :>> ', location);
 
     return (
-        <div>Movies
-            
-            <form  onSubmit={setQuery}>
-                <input
-                    name='name'
-                    onChange={onInputChange}
-                    type="text"
-                />
-                <button type='submit'>search</button>
-            </form>
+        <div>            
+            <SearchForm
+                setQuery={setQuery}
+                onInputChange={onInputChange}
+            />
             
             <ul>
                 {searchResult.length ?
@@ -97,7 +95,7 @@ function Movies(props) {
                             >
                                 {el.title || el.original_name}</Link>
                         </li>) :
-                    <p>No movies by request {`${searchParams}`} </p>
+                    <p>No movies by request {`'${query}'`} </p>
                 }
             </ul>
             {totalPages && 
