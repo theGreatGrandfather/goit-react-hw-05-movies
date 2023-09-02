@@ -5,7 +5,6 @@ import { List } from './CastList.styled'
 import CastItem from 'components/CastItem/CastItem'
 
 function CastList({ cast }) {
-    console.log('cast :>> ', cast);
     return (
         <List>        
                 {cast.map((el) => (
@@ -24,7 +23,7 @@ function CastList({ cast }) {
 CastList.propTypes = {
     cast: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired, 
-        profile_path: PropTypes.string.isRequired, 
+        profile_path: PropTypes.string, 
         character: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired, 
     })).isRequired, 

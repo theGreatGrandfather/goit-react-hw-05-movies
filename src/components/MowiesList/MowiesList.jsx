@@ -31,7 +31,7 @@ MowiesList.propTypes = {
         PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string,
-        original_name: PropTypes.string.isRequired,
+        original_name: PropTypes.string,
         poster_path: PropTypes.string.isRequired,
         backdrop_path: PropTypes.string.isRequired,
         })

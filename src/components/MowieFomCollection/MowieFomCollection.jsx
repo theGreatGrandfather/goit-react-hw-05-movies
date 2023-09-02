@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ContentContainer,ContentWrapper, MovieImg, MovieTite, GenresContainer, MovieDescription, MovieSupTitle } from './MowieFomCollection.styled'
-// https://thegreatgrandfather.github.io/goit-react-hw-05-movies/public/background.jpg
-function MowieFomCollection({title, img, average, overview, genres, movieData }) {
+
+function MowieFomCollection({ title, img, average, overview, genres, movieData }) {
     return (
         <ContentWrapper>
             
@@ -46,10 +46,9 @@ function MowieFomCollection({title, img, average, overview, genres, movieData })
 MowieFomCollection.propTypes = {
     title: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
-    average: PropTypes.number.isRequired,
+    average: PropTypes.number,
     overview: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-    movieData: PropTypes.bool.isRequired,
+    movieData: PropTypes.object,
 };
-
 export default MowieFomCollection

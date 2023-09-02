@@ -4,9 +4,6 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getMoviesBySearch } from 'components/Api';
 import SearchForm from 'components/SearchForm/SearchForm';
 
-
-
-
 function Movies(props) {
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -27,7 +24,6 @@ function Movies(props) {
             }
             try {
                 const resp = await getMoviesBySearch(query, pageQuery)
-                console.log('searchResult :>> ', resp);
                 setSearchResult(resp.results);
                 setTotalPages(resp.total_pages)
                 return
@@ -40,7 +36,7 @@ function Movies(props) {
 
         return () => {
             setSearchResult([]);
-            setSearchQuery(null);
+            setSearchQuery('');
             setTotalPages(null)
         }
 
@@ -75,8 +71,6 @@ function Movies(props) {
                 break;
         }
     }
-
-    console.log('location :>> ', location);
 
     return (
         <div>            

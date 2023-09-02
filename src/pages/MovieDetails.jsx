@@ -10,14 +10,14 @@ import DetailsInfo from 'components/DetailsInfo/DetailsInfo';
 
 function MovieDetails() {
     const { movieId } = useParams();
-    const [movieData, setMovieData] = useState('');
+    const [movieData, setMovieData] = useState({});
 
     const location = useLocation();
     const backLinkHref = useRef(location.state?.from ?? '/movies');
 
     const [title, setTitle] = useState('');
     const [img, setImg] = useState('');
-    const [average, setAverage] = useState('');
+    const [average, setAverage] = useState();
     const [overview, setOverview] = useState('');
     const [genres, setGenres] = useState([]);
     console.log('movieData :>> ', movieData);
