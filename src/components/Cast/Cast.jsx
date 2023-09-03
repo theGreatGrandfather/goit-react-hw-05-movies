@@ -24,7 +24,7 @@ function Cast() {
 
         getCastData();
 
-    }, [ movieId, on, off]);
+    }, [ movieId]);
     return (
         <div>
             {(cast&&cast.length) ?<CastList

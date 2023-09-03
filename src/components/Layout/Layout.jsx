@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Outlet } from 'react-router-dom';
 
 import { Header, Container, Nav, NavItem, NavList, Link } from './Layout.styled';
+import Loader from 'components/Loader/Loader';
 
 
 function Layout() {
@@ -23,7 +24,7 @@ function Layout() {
                 </Container>
             </Header>
             <main>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader/>}>
                     <Outlet />
                 </Suspense>
             </main>

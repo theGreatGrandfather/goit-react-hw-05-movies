@@ -9,6 +9,8 @@ import {ItemLink} from '../components/MowiesItem/MowiesItem.stuled'
 import DetailsInfo from 'components/DetailsInfo/DetailsInfo';
 import { useTurnError } from 'hooks/useTurnError';
 import ErrorPage from 'components/404/ErrorPage';
+import { useTurnLoader } from 'hooks/useTurnLoader';
+import Loader from 'components/Loader/Loader';
 
 function MovieDetails() {
     const { movieId } = useParams();
@@ -23,7 +25,7 @@ function MovieDetails() {
     const [overview, setOverview] = useState('');
     const [genres, setGenres] = useState([]);
     const { error, on, off } = useTurnError(false);
-
+    const { loading, toggleLoading } = useTurnLoader(false);
     
     useEffect(() => {
         const movieDetails = async () => {
@@ -42,13 +44,17 @@ function MovieDetails() {
                 
             } catch (error) {
                 on(true)
+            }finally {
+                toggleLoading(false)
             }
         }
         movieDetails();
-    }, [movieId, on, off])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [movieId])
     
     return (
         <>
+            {loading && <Loader/>}
             <Section>
                 <ItemLink
                     to={backLinkHref.current}

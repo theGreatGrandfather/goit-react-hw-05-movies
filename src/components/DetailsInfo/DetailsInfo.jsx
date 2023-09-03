@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import {DetaisWrapper, DetaisList, DetailsItem} from './DetailsInfo.styled'
 import {ItemLink} from '../MowiesItem/MowiesItem.stuled'
 import {MovieDescription} from '../MowieFomCollection/MowieFomCollection.styled'
+import Loader from 'components/Loader/Loader';
 
 function DetailsInfo({cast, reviews}) {
   return (
@@ -25,7 +26,7 @@ function DetailsInfo({cast, reviews}) {
           </ItemLink>
         </DetailsItem>
       </DetaisList>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader/>}>
         <Outlet />
       </Suspense>
     </DetaisWrapper>
