@@ -5,20 +5,27 @@ import { getCast } from '../Api';
 import CastList from 'components/CastList/CastList';
 import { useTurnError } from 'hooks/useTurnError';
 import ErrorPage from 'components/404/ErrorPage';
+import Loader from 'components/Loader/Loader';
+import { useTurnLoader } from 'hooks/useTurnLoader';
 
 function Cast() {
     const { movieId } = useParams();
     const [cast, setCast] = useState(null);
     const { error, on, off } = useTurnError(false);
-    
+    const { loading, toggleLoading } = useTurnLoader(false);
+
     useEffect(() => {
         const getCastData = async () => {
+            toggleLoading(true);
             try {
+                
                 off(true)
                 const resp = await getCast(movieId);
                 setCast(resp.cast);
             } catch (error) {
                 on(true)
+            }finally {
+                toggleLoading(false)
             }
         };
 
@@ -28,6 +35,7 @@ function Cast() {
     }, [ movieId]);
     return (
         <div>
+            {loading && <Loader/>}
             {(cast&&cast.length) ?<CastList
                 cast={cast}
             /> :

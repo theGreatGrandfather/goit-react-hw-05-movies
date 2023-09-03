@@ -28,12 +28,14 @@ function Movies() {
 
     useEffect(() => {
         const searchMovies = async () => {
+            toggleLoading(true);
             off(true)
             if (!query) {
+                toggleLoading(false)
                 return
             }
             try {
-                toggleLoading(true);
+                
                 const resp = await getMoviesBySearch(query, pageQuery)
                 setSearchResult(resp.results);
                 setTotalPages(resp.total_pages)

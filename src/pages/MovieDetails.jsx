@@ -29,8 +29,9 @@ function MovieDetails() {
     
     useEffect(() => {
         const movieDetails = async () => {
+            toggleLoading(true)
             try {
-                toggleLoading(true)
+                
                 off(true);
                 const resp = await getMoviesById(movieId);
                 setMovieData(resp);

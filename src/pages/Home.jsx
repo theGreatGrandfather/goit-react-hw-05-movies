@@ -18,9 +18,9 @@ function Home() {
     useEffect(() => {
         
         const trendingMovies = async () => {
-            
+            toggleLoading(true);
             try {
-                toggleLoading(true);
+                
                 off(true);
                 const resp = await getTrendingMovies();
                 setMoviesList(resp.results);
