@@ -30,6 +30,7 @@ function MovieDetails() {
     useEffect(() => {
         const movieDetails = async () => {
             try {
+                toggleLoading(true)
                 off(true);
                 const resp = await getMoviesById(movieId);
                 setMovieData(resp);
@@ -44,7 +45,7 @@ function MovieDetails() {
                 
             } catch (error) {
                 on(true)
-            }finally {
+            } finally {
                 toggleLoading(false)
             }
         }
