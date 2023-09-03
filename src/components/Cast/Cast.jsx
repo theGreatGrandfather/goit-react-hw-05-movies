@@ -11,7 +11,6 @@ function Cast() {
         const getCastData = async () => {
             try {
                 const resp = await getCast(movieId);
-                console.log('getCast :>> ', resp);
                 setCast(resp.cast);
             } catch (error) {
                 console.log('getCast :>> ', error);
@@ -21,8 +20,6 @@ function Cast() {
         getCastData();
 
     }, [ movieId]);
-
-    console.log('cast :>> ', cast);
     return (
         <div>
             {(cast&&cast.length) ?<CastList

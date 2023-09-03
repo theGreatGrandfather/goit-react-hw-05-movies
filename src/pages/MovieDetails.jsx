@@ -20,15 +20,12 @@ function MovieDetails() {
     const [average, setAverage] = useState();
     const [overview, setOverview] = useState('');
     const [genres, setGenres] = useState([]);
-    console.log('movieData :>> ', movieData);
+ 
     
     useEffect(() => {
         const movieDetails = async () => {
             try {
                 const resp = await getMoviesById(movieId);
-                console.log('resp :>> ', resp);
-
-
                 setMovieData(resp);
                 setTitle(resp.title);
                 setImg((resp.poster_path) ?

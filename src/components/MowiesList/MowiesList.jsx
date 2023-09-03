@@ -5,7 +5,6 @@ import {List} from './MowiesList.styled'
 import MowiesItem from '../MowiesItem/MowiesItem'
 
 function MowiesList({ moviesList, state }) {
-    console.log('moviesList :>> ', moviesList);
     return (
         <List>
             {moviesList.map((movie) => (

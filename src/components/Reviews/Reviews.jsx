@@ -12,7 +12,6 @@ function Reviews() {
             try {
                 const resp = await getRev(movieId);
                 setRev(resp.results);
-                console.log('rev :>> ', resp.results);
             } catch (error) {
                 console.log('error :>> ', error);
             }
@@ -20,7 +19,7 @@ function Reviews() {
         
         getRevData();
     }, [movieId])
-    console.log('rev :>> ', rev);
+ 
     return (
         <div>
             <ul>
