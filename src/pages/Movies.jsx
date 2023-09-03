@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 import { getMoviesBySearch } from 'components/Api';
 import SearchForm from 'components/SearchForm/SearchForm';
+import SearchList from 'components/SearchList/SeachList';
+import Section from 'components/Section/Section';
+import { Button } from 'components/SearchForm/SearchForm.styled';
+import { useTurnError } from 'hooks/useTurnError';
+import ErrorPage from 'components/404/ErrorPage';
 
-function Movies(props) {
+function Movies() {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const pageQuery = searchParams.get("page") ?? '';
@@ -16,9 +21,11 @@ function Movies(props) {
     const [totalPages, setTotalPages] = useState(null);
 
     const location = useLocation();
+    const { error, on, off } = useTurnError(false);
     
     useEffect(() => {
         const searchMovies = async () => {
+            off(true)
             if (!query) {
                 return
             }
@@ -28,7 +35,7 @@ function Movies(props) {
                 setTotalPages(resp.total_pages)
                 return
             } catch (error) {
-                console.log('error :>> ', error);
+                on(true)
             }
             
         } 
@@ -40,7 +47,8 @@ function Movies(props) {
             setTotalPages(null)
         }
 
-    }, [pageQuery, query])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pageQuery, query  ])
 
     const onInputChange = e => {
         e.preventDefault();
@@ -55,6 +63,7 @@ function Movies(props) {
         setSearchParams({ query: searchQuery, page:1 });
         setPage(1);
         e.target[0].value = '';
+        off(true)
     }
 
     const onPrevNextBtnClick = (key) => {
@@ -73,38 +82,37 @@ function Movies(props) {
     }
 
     return (
-        <div>            
+        <Section> 
+            {error&& <ErrorPage/>}
             <SearchForm
                 setQuery={setQuery}
                 onInputChange={onInputChange}
             />
-            
-            <ul>
-                {searchResult.length ?
-                    searchResult.map((el) =>
-                        <li key={el.id}>
-                            <Link
-                                to={`${el.id}`}
-                                state={{ from: location }}
-                            >
-                                {el.title || el.original_name}</Link>
-                        </li>) :
-                    <p>No movies by request {`'${query}'`} </p>
-                }
-            </ul>
+            <SearchList
+                searchResult={searchResult}
+                // to={`${searchResult.id}`}
+                state={{ from: location }}
+                query={`'${query}'`}
+            />
             {totalPages && 
-                <ul>
+                <ul style={
+                    {
+                        display: 'flex',
+                        gap: '8px'
+                    }
+                }>
                     {pageQuery !== '1' &&
                         <li>
-                            <button type='button' onClick={()=>onPrevNextBtnClick('prev')}>prev</button>
+                            <Button type='button' onClick={()=>onPrevNextBtnClick('prev')}>prev</Button>
                         </li>}
                     {totalPages > pageQuery && totalPages !== pageQuery &&
                         <li>
-                            <button type='button' onClick={() => onPrevNextBtnClick('next')}>next</button>
+                            <Button type='button' onClick={() => onPrevNextBtnClick('next')}>next</Button>
                     </li>}
                 </ul>
             }
-        </div>
+            
+        </Section>
     )
 }
 

@@ -1,27 +1,38 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import { List } from './SearchList.styled';
-// import MowiesItem from '../MowiesItem/MowiesItem'
+import React from 'react'
+import PropTypes from 'prop-types'
 
+import { List } from './SearchList.styled';
+import SeachItem from 'components/SearchItem/SeachItem';
 
+function SearchList({ searchResult, state }) {
 
-// function SearchList({ searchResult, state }) {
+    return (
+        <>
+            <List>
+                {searchResult &&
+                    searchResult.map((el) =>
+                        <SeachItem
+                            key={el.id}
+                            to={`${el.id}`}
+                            state={state}
+                            img={el.poster_path !== null ?
+                                `https://image.tmdb.org/t/p/w200${el.poster_path}` :
+                                'https://raw.githubusercontent.com/theGreatGrandfather/goit-react-hw-05-movies/main/public/background.jpg'}
+                            title={el.title || el.original_title}
+                        >
+                            
+                        </SeachItem>) 
+                    
+                }
+    
+            </List>
+        </>
+    )
+}
 
-//     return (
-//         <List>
-//             {searchResult.map((el) =>
-//                 <MowiesItem
-//                     key={el.id}
-//                      id={el.id}
-//                     poster_path={el.poster_path}
-//                     title={el.title}
-//                     original_title={el.original_title}
-//                     state={state}
-//                 />)}
-//         </List>
-//     )
-// }
+SearchList.propTypes = {
+    searchResult: PropTypes.array,
+    state: PropTypes.object,
+};
 
-// SearchList.propTypes = {};
-
-// export default SearchList
+export default SearchList

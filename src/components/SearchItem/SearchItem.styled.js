@@ -40,3 +40,8 @@ export const Img = styled.img`
     height: 100%;
     box-sizing: border-box;
 `
+
+export const Title = styled.p`
+    display: block;
+    text-align: center;
+`

@@ -7,6 +7,8 @@ import Section from '../components/Section/Section'
 import MowieFomCollection from 'components/MowieFomCollection/MowieFomCollection';
 import {ItemLink} from '../components/MowiesItem/MowiesItem.stuled'
 import DetailsInfo from 'components/DetailsInfo/DetailsInfo';
+import { useTurnError } from 'hooks/useTurnError';
+import ErrorPage from 'components/404/ErrorPage';
 
 function MovieDetails() {
     const { movieId } = useParams();
@@ -20,11 +22,13 @@ function MovieDetails() {
     const [average, setAverage] = useState();
     const [overview, setOverview] = useState('');
     const [genres, setGenres] = useState([]);
- 
+    const { error, on, off } = useTurnError(false);
+
     
     useEffect(() => {
         const movieDetails = async () => {
             try {
+                off(true);
                 const resp = await getMoviesById(movieId);
                 setMovieData(resp);
                 setTitle(resp.title);
@@ -37,16 +41,20 @@ function MovieDetails() {
                     el.name));
                 
             } catch (error) {
-                console.log('error :>> ', error);
+                on(true)
             }
         }
         movieDetails();
-    }, [movieId])
+    }, [movieId, on, off])
     
     return (
         <>
             <Section>
-                <ItemLink to={backLinkHref.current}>go back</ItemLink>
+                <ItemLink
+                    to={backLinkHref.current}
+                >
+                    go back
+                </ItemLink>
                 <MowieFomCollection
                     title={title}
                     img={img}
@@ -54,9 +62,7 @@ function MovieDetails() {
                     overview={overview}
                     genres={genres}
                     movieData={movieData}
-                >
-                
-                </MowieFomCollection>
+                />
             </Section >
             <Section>
                 <DetailsInfo
@@ -65,7 +71,8 @@ function MovieDetails() {
                 >
 
                 </DetailsInfo>
-            </Section>    
+            </Section>
+            {error&& <ErrorPage/>}
         </>
     )
 }

@@ -17,7 +17,6 @@ function MowiesList({ moviesList, state }) {
                     title={movie.title}
                     originalName={movie.original_name}
                     img={movie.poster_path}
-                    img1={movie.backdrop_path}
                 />
             
                 ))}
