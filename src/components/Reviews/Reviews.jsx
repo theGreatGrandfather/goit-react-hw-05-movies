@@ -23,7 +23,8 @@ function Reviews() {
         }
         
         getRevData();
-    }, [movieId, on, off])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [movieId])
  
     return (
         <div>
